@@ -92,6 +92,10 @@ order:
 | `parakeet` | `parakeet_model` | Apple Silicon, English only, very fast |
 | `groq` | `groq_api_key` | Cloud, requires [API key](https://console.groq.com) |
 
+I currently use the `openai` provider pointed at a vLLM server running
+[Cohere Transcribe (`CohereLabs/cohere-transcribe-03-2026`)](https://huggingface.co/CohereLabs/cohere-transcribe-03-2026),
+which works well for daily dictation.
+
 ### Fallback chains
 
 Backends listed in `order` are tried in sequence. If a backend with `connect_timeout` is unreachable, STT falls back to the next one:
