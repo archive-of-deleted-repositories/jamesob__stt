@@ -1,5 +1,29 @@
 # STT
 
+> [!IMPORTANT]
+> **I've moved development of this project to
+> [`sttg`](https://github.com/jamesob/stt-go)** — a Go rewrite I use day-to-day:
+> <https://github.com/jamesob/stt-go>
+>
+> Why a rewrite instead of continued work here:
+>
+> - **One static binary.** No Python interpreter, `uv`/venv, or dependency
+>   tree on the machine — just drop the binary in `~/.local/bin`. Zero
+>   third-party modules; the only system libraries touched are the ones the
+>   OS already has (Cocoa on macOS, wayland-client/cairo/pango on Linux).
+> - **Same workflow, re-ported:** hold-to-record hotkey, the waveform overlay
+>   pill (now a native `wlr-layer-shell` client on Wayland that follows the
+>   focused output), Shift → trailing Enter, Esc → cancel, replay of the
+>   recent recordings, live config reload.
+> - **One transcription backend instead of four.** sttg only speaks the
+>   OpenAI-compatible `POST {base}/audio/transcriptions` shape, which my
+>   self-hosted whisper server already implements — dropping the MLX/Groq/
+>   whisper.cpp-specific integrations removed a lot of surface area and
+>   maintenance for the same day-to-day behavior.
+>
+> This repo remains as the original Python implementation; I won't be merging
+> changes into it.
+
 Hold a key, speak, release -- your words appear wherever your cursor is.
 
 **Like SuperWhisper, but free. Like Wispr Flow, but local.**
